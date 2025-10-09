@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>連動スクワット × トレッドミル週6プログラム</title>
+<style>
+  :root {
+    --chalk:#fff;
+    --board:#1c3b2a;
+    --accent:#a8ff9e;
+  }
+  body {
+    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    background:var(--board);
+    color:var(--chalk);
+    margin:0; padding:0;
+  }
+  header {
+    text-align:center;
+    padding:16px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+  }
+  h1 {font-size:20px; margin:0;}
+  .tabs {
+    display:flex;
+    overflow-x:auto;
+    background:#284d37;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+  }
+  .tab {
+    flex:1;
+    text-align:center;
+    padding:10px;
+    cursor:pointer;
+    color:#bbb;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+  }
+  .tab.active {
+    color:var(--accent);
+    border-bottom:3px solid var(--accent);
+    font-weight:600;
+  }
+  .content {padding:20px;}
+  .day-section {display:none;}
+  .day-section.active {display:block;animation:fade 0.3s ease;}
+  @keyframes fade {from{opacity:0;}to{opacity:1;}}
+  h2 {font-size:18px;margin-top:0;color:var(--accent);}
+  ul {padding-left:20px;}
+  li {margin-bottom:6px;cursor:pointer;}
+  li:hover {color:var(--accent);text-decoration:underline;}
+  .theme {color:var(--accent);margin-top:10px;font-weight:600;}
+  .goal {color:#ccc;font-size:14px;margin-top:10px;}
+
+  /* モーダル */
+  .modal {
+    display:none;position:fixed;z-index:10;left:0;top:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.6);
+  }
+  .modal-content {
+    background:#2b4d36;
+    margin:15% auto;
+    padding:20px;
+    border-radius:10px;
+    width:90%;
+    max-width:480px;
+    color:#fff;
+    box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  }
+  .close {
+    float:right;font-size:20px;font-weight:bold;cursor:pointer;color:#aaa;
+  }
+  .close:hover {color:#fff;}
+</style>
+</head>
+
+<body>
+<header><h1>連動スクワット × トレッドミル週6プログラム</h1></header>
+
+<div class="tabs">
+  <div class="tab active" data-target="day1">Day1</div>
+  <div class="tab" data-target="day2">Day2</div>
+  <div class="tab" data-target="day3">Day3</div>
+  <div class="tab" data-target="day4">Day4</div>
+  <div class="tab" data-target="day5">Day5</div>
+  <div class="tab" data-target="day6">Day6</div>
+</div>
+
+<div class="content">
+
+<!-- Day1 -->
+<section id="day1" class="day-section active">
+<h2>Day1　軸とテンションの安定</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="sq">バックスクワット 5×5</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="tube">チューブ吊りスクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm1">電動式：傾斜ウォーク（5〜7%・6km/h・10分）</li>
+<li data-ex="tm2">自走式：軽いジョグ（1分on/off×6）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="br">90/90ブリージング</li>
+<li data-ex="elbow">四つ這いチューブ・エルボープレス</li>
+<li data-ex="wall">ウォールスクワット</li>
+</ul>
+<div class="goal">狙い：骨盤と肩甲帯をつなぎ、呼吸テンションを全身に伝える。</div>
+</section>
+
+<!-- Day2 -->
+<section id="day2" class="day-section">
+<h2>Day2　骨盤と胸郭の同調</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="bp">ベンチプレス 5×5</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="stickoh">スティック・オーバーヘッドスクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm3">電動式：テンポ走（30秒走＋60秒歩×6）</li>
+<li data-ex="tm4">自走式：前傾フォーム走（10〜15秒×6）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="cat">キャット＆カウ</li>
+<li data-ex="hinge">ヒップヒンジ＋胸郭開閉ドリル</li>
+<li data-ex="yraise">ショルダーYリフト</li>
+</ul>
+<div class="goal">狙い：骨盤前傾と胸郭伸展を同期させ、全身のテンポを整える。</div>
+</section>
+
+<!-- Day3 -->
+<section id="day3" class="day-section">
+<h2>Day3　分離と対回旋</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="dl">デッドリフト 5×3</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="cross">スティック・クロススクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm5">電動式：インターバル走（15秒スプリント×8）</li>
+<li data-ex="tm6">自走式：変速走（加速⇄減速×10）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="halfrot">ハーフニーリング・ローテーション</li>
+<li data-ex="seatrot">シーテッド・トランクツイスト</li>
+<li data-ex="pelvrot">骨盤ツイスト in スプリットスタンス</li>
+</ul>
+<div class="goal">狙い：骨盤先行と胸郭遅れの分離を体得し、捻転差を育てる。</div>
+</section>
+
+<!-- Day4 -->
+<section id="day4" class="day-section">
+<h2>Day4　再統合（全身連動）</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="sq2">軽負荷スクワット 3×8</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="halo">チューブ・ハロー＋スクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm7">電動式：リズム走（90秒ラン＋30秒リカバリー×8）</li>
+<li data-ex="tm8">自走式：ピッチ走（高ピッチ10秒×10）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="haloonly">ハロー単独ドリル</li>
+<li data-ex="spiral">スパイラル・リーチ</li>
+<li data-ex="stepreach">ステップバック・ランジ＋リーチ</li>
+</ul>
+<div class="goal">狙い：下肢と上肢を対角線で結び、波として力を伝える。</div>
+</section>
+
+<!-- Day5 -->
+<section id="day5" class="day-section">
+<h2>Day5　自動化と反応制御</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="dl2">デッドリフト or ベンチプレス（軽負荷）3×6</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="react">リアクティブ・スティックスクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm9">電動式：傾斜スプリント（10秒×6）</li>
+<li data-ex="tm10">自走式：リアクティブ走（10秒全力＋10秒オフ×8）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="hop">ラテラル・ホップ＆キャッチ</li>
+<li data-ex="pairpush">ペア・チューブプッシュ</li>
+<li data-ex="stickhold">ジャンプ to スティック保持</li>
+</ul>
+<div class="goal">狙い：外的刺激に反応しながら全身を統合的に動かす。</div>
+</section>
+
+<!-- Day6 -->
+<section id="day6" class="day-section">
+<h2>Day6　呼吸と統合リセット</h2>
+<div class="theme">メインウエイト</div>
+<ul><li data-ex="fsq">フロントスクワット（軽負荷）3×8</li></ul>
+<div class="theme">連動スクワット</div>
+<ul><li data-ex="inside">骨盤インサイドスクワット</li></ul>
+<div class="theme">トレッドミル</div>
+<ul>
+<li data-ex="tm11">電動式：リカバリーウォーク（10分）</li>
+<li data-ex="tm12">自走式：スロージョグ（RPE3〜4・7分）</li>
+</ul>
+<div class="theme">逆算エクササイズ</div>
+<ul>
+<li data-ex="deadbug">デッドバグ</li>
+<li data-ex="wgs">ワールドグレイテストストレッチ</li>
+<li data-ex="br2">90/90ブリージング</li>
+</ul>
+<div class="goal">狙い：呼吸と骨盤リズムを再調律し、週全体の動作を整える。</div>
+</section>
+
+</div>
+
+<!-- モーダル -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="exTitle"></h3>
+    <p id="exDesc"></p>
+  </div>
+</div>
+
+<script>
+const tabs=document.querySelectorAll('.tab');
+const sections=document.querySelectorAll('.day-section');
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    sections.forEach(s=>s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+
+const exInfo={
+sq:{title:"バックスクワット",desc:"足幅は肩幅。胸郭を保ち骨盤を前傾させてしゃがむ。下肢出力と軸安定を同時に育てる基本リフト。"},
+tube:{title:"チューブ吊りスクワット",desc:"頭上のチューブを保持し、肘90°から下降時に自然進展。股関節屈曲と上肢伸展を連動させ、テンションを保つ。"},
+tm1:{title:"電動式：傾斜ウォーク",desc:"傾斜5〜7％で6km/h前後。骨盤の前傾を維持しながら呼吸を整える。姿勢制御とテンション調律。"},
+tm2:{title:"自走式：軽いジョグ",desc:"1分走1分休×6。接地リズムを一定に保ち、体幹の安定を維持する。"},
+br:{title:"90/90ブリージング",desc:"仰向けで股関節・膝90°。息を吐き切り骨盤を後傾。呼吸で腹圧を作り肋骨を締める。"},
+elbow:{title:"四つ這いチューブ・エルボープレス",desc:"四つ這いでチューブを肘で押し体幹安定。肩甲骨を肋骨に沿わせる感覚を養う。"},
+wall:{title:"ウォールスクワット",desc:"壁に近づき胸を潰さずしゃがむ。骨盤後傾と体幹制御の再教育。"},
+bp:{title:"ベンチプレス",desc:"胸郭を開き肘を45度で押す。体幹テンションを保ち上肢出力を整える。"},
+stickoh:{title:"スティック・オーバーヘッドスクワット",desc:"棒を頭上で保持し、胸郭を広げたまましゃがむ。肩甲骨上方回旋と股関節ヒンジを協調。"},
+tm3:{title:"電動式：テンポ走",desc:"30秒走＋60秒歩×6。呼吸と骨盤リズムを合わせ、テンポと脱力を学ぶ。"},
+tm4:{title:"自走式：前傾フォーム走",desc:"前傾姿勢で加速10〜15秒×6。骨盤滑走と上肢振りの同期を育てる。"},
+cat:{title:"キャット＆カウ",desc:"背骨を波打たせるように動かし、胸椎と骨盤の屈伸リズムを一致。"},
+hinge:{title:"ヒップヒンジ＋胸郭開閉ドリル",desc:"前傾時に胸郭を保持。下位胸郭の可動を促し潰れ防止。"},
+yraise:{title:"ショルダーYリフト",desc:"胸骨を持ち上げる意識でY字に挙上。肩甲骨上方回旋を促す。"},
+dl:{title:"デッドリフト",desc:"股関節主導でバーベルを引く。脊柱を中立に保ち下肢連動を強化。"},
+cross:{title:"スティック・クロススクワット",desc:"棒を胸の前で構え、下降時に骨盤と反対方向に上体を捻る。骨盤回旋と肩甲帯反回旋を協調。"},
+tm5:{title:"電動式：インターバル走",desc:"15秒全力＋45秒歩×8。骨盤先行と胸郭遅れのタイミングを育てる。"},
+tm6:{title:"自走式：変速走",desc:"加速・減速を自分でコントロール×10。動作の予測と制御能力を鍛える。"},
+halfrot:{title:"ハーフニーリング・ローテーション",desc:"膝立ちで骨盤固定、胸郭のみ回旋。分離制御を学習。"},
+seatrot:{title:"シーテッド・トランクツイスト",desc:"座位で胸郭を捻り、胸椎可動域を広げる。"},
+pelvrot:{title:"骨盤ツイスト",desc:"スプリットスタンスで骨盤のみを先行。股関節内旋と内腹斜筋を連携。"},
+sq2:{title:"軽負荷スクワット",desc:"軽重量でフォームとリズム重視。神経系の再統合を促す。"},
+halo:{title:"チューブ・ハロー＋スクワット",desc:"チューブを頭周囲で回しながらスクワット。肩甲骨滑走と股関節屈伸を同期。"},
+tm7:{title:"電動式：リズム走",desc:"90秒ラン＋30秒リカバリー×8。呼吸・ピッチ・骨盤のリズムを整える。"},
+tm8:{title:"自走式：ピッチ走",desc:"短ストライド高ピッチ10秒×10。下肢から上肢へ波動を通す。"},
+haloonly:{title:"ハロー単独ドリル",desc:"肩甲骨を滑らせながらハロー動作。胸郭回旋を解放する。"},
+spiral:{title:"スパイラル・リーチ",desc:"片脚立位で対角線にリーチ。螺旋的連鎖を強化。"},
+stepreach:{title:"ステップバック・ランジ＋リーチ",desc:"後方ランジで骨盤推進と胸郭開きを連動。"},
+dl2:{title:"デッドリフト or ベンチ軽負荷",desc:"出力よりも制御重視。全身の連動感覚を確認する日。"},
+react:{title:"リアクティブ・スティックスクワット",desc:"不安定な棒を保持してスクワット。外的揺れに対して全身を反応的に制御する。"},
+tm9:{title:"電動式：傾斜スプリント",desc:"傾斜10％で10秒全力×6。瞬発的出力と姿勢維持を結合させる。"},
+tm10:{title:"自走式：リアクティブ走",desc:"10秒全力＋10秒オフ×8。接地反応と上肢連動の自動化を狙う。"},
+hop:{title:"ラテラル・ホップ＆キャッチ",desc:"左右ジャンプで棒やボールをキャッチ。重心移動と反応速度を同時に鍛える。"},
+pairpush:{title:"ペア・チューブプッシュ",desc:"パートナーが抵抗を変化させる中で姿勢を保つ。瞬時の姿勢調整を学習。"},
+stickhold:{title:"ジャンプ to スティック保持",desc:"ジャンプ後に棒を安定保持。反射的な安定化を促す。"},
+fsq:{title:"フロントスクワット",desc:"バーを前肩で保持。重心前方で姿勢を制御し、体幹前側を強化。"},
+inside:{title:"骨盤インサイドスクワット",desc:"スクワット中に骨盤を内旋方向へ導く。股関節内旋と腹斜筋を連動。"},
+tm11:{title:"電動式：リカバリーウォーク",desc:"傾斜0％で3〜4km/h、10分。呼吸を整え、週の疲労を回収。"},
+tm12:{title:"自走式：スロージョグ",desc:"RPE3〜4で7分。骨盤と胸郭のリズムを確認しながら軽く走る。"},
+deadbug:{title:"デッドバグ",desc:"仰向けで対角線手脚を動かし、体幹と四肢の分離を再確認。"},
+wgs:{title:"ワールドグレイテストストレッチ",desc:"全身の連動ストレッチ。股関節と胸椎の可動域を拡張。"},
+br2:{title:"90/90ブリージング（再）",desc:"週終盤の再調律。呼吸と骨盤リズムを一致させ、自律神経を整える。"}
+};
+
+// モーダル動作
+const modal=document.getElementById('modal');
+const exTitle=document.getElementById('exTitle');
+const exDesc=document.getElementById('exDesc');
+const closeBtn=document.querySelector('.close');
+
+document.querySelectorAll('li[data-ex]').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const key=item.dataset.ex;
+    exTitle.textContent=exInfo[key].title;
+    exDesc.textContent=exInfo[key].desc;
+    modal.style.display='block';
+  });
+});
+closeBtn.onclick=()=>modal.style.display='none';
+window.onclick=e=>{if(e.target==modal)modal.style.display='none';}
+</script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-# fkk-14-fujiwara
