@@ -4,10 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>連動スクワット × トレッドミル週6プログラム</title>
- <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#1c3b2a">
-  <link rel="icon" href="./192-icons.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="./512-icons.png">
+
+<!-- ✅ iOS / PWA両対応の完全構成 -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#1c3b2a">
+
+<!-- 👇 iOSがアイコンを認識するために必要 -->
+<link rel="apple-touch-icon" sizes="192x192" href="./192-icons.png">
+<link rel="apple-touch-icon" sizes="512x512" href="./512-icons.png">
+
+<!-- 👇 favicon としても登録 -->
+<link rel="icon" type="image/png" sizes="192x192" href="./192-icons.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./512-icons.png">
+
+<!-- 👇 iOSにPWA動作を許可させるmeta -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="連動スクワット">
+
 <style>
   :root {
     --chalk:#fff;
