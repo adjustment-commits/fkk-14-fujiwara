@@ -8,8 +8,8 @@ const CACHE_NAME = "rendo-squat-cache-v1";
 const urlsToCache = [
   "index.html",
   "manifest.json",
-  "icons-192.png",
-  "icons-512.png"
+  "icons-192.PNG",
+  "icons-512.PNG"
 ];
 
 // インストール時：キャッシュを作成
