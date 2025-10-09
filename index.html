@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>連動スクワット × トレッドミル週6プログラム</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1c3b2a">
 <style>
   :root {
     --chalk:#fff;
@@ -89,7 +91,7 @@
 
 <div class="content">
 
-<!-- Day1 -->
+<!-- ========== Day1 ========== -->
 <section id="day1" class="day-section active">
 <h2>Day1　軸とテンションの安定</h2>
 <div class="theme">メインウエイト</div>
@@ -110,7 +112,7 @@
 <div class="goal">狙い：骨盤と肩甲帯をつなぎ、呼吸テンションを全身に伝える。</div>
 </section>
 
-<!-- Day2 -->
+<!-- ========== Day2 ========== -->
 <section id="day2" class="day-section">
 <h2>Day2　骨盤と胸郭の同調</h2>
 <div class="theme">メインウエイト</div>
@@ -131,7 +133,7 @@
 <div class="goal">狙い：骨盤前傾と胸郭伸展を同期させ、全身のテンポを整える。</div>
 </section>
 
-<!-- Day3 -->
+<!-- ========== Day3 ========== -->
 <section id="day3" class="day-section">
 <h2>Day3　分離と対回旋</h2>
 <div class="theme">メインウエイト</div>
@@ -152,7 +154,7 @@
 <div class="goal">狙い：骨盤先行と胸郭遅れの分離を体得し、捻転差を育てる。</div>
 </section>
 
-<!-- Day4 -->
+<!-- ========== Day4 ========== -->
 <section id="day4" class="day-section">
 <h2>Day4　再統合（全身連動）</h2>
 <div class="theme">メインウエイト</div>
@@ -173,7 +175,7 @@
 <div class="goal">狙い：下肢と上肢を対角線で結び、波として力を伝える。</div>
 </section>
 
-<!-- Day5 -->
+<!-- ========== Day5 ========== -->
 <section id="day5" class="day-section">
 <h2>Day5　自動化と反応制御</h2>
 <div class="theme">メインウエイト</div>
@@ -194,7 +196,7 @@
 <div class="goal">狙い：外的刺激に反応しながら全身を統合的に動かす。</div>
 </section>
 
-<!-- Day6 -->
+<!-- ========== Day6 ========== -->
 <section id="day6" class="day-section">
 <h2>Day6　呼吸と統合リセット</h2>
 <div class="theme">メインウエイト</div>
@@ -227,6 +229,7 @@
 </div>
 
 <script>
+// --- タブ切替 ---
 const tabs=document.querySelectorAll('.tab');
 const sections=document.querySelectorAll('.day-section');
 tabs.forEach(tab=>{
@@ -238,19 +241,25 @@ tabs.forEach(tab=>{
   });
 });
 
+// --- エクササイズ説明 ---
+const modal=document.getElementById('modal');
+const exTitle=document.getElementById('exTitle');
+const exDesc=document.getElementById('exDesc');
+const closeBtn=document.querySelector('.close');
+
 const exInfo={
 sq:{title:"バックスクワット",desc:"足幅は肩幅。胸郭を保ち骨盤を前傾させてしゃがむ。下肢出力と軸安定を同時に育てる基本リフト。"},
-tube:{title:"チューブ吊りスクワット",desc:"頭上のチューブを保持し、肘90°から下降時に自然進展。股関節屈曲と上肢伸展を連動させ、テンションを保つ。"},
-tm1:{title:"電動式：傾斜ウォーク",desc:"傾斜5〜7％で6km/h前後。骨盤の前傾を維持しながら呼吸を整える。姿勢制御とテンション調律。"},
-tm2:{title:"自走式：軽いジョグ",desc:"1分走1分休×6。接地リズムを一定に保ち、体幹の安定を維持する。"},
+tube:{title:"チューブ吊りスクワット",desc:"頭上チューブを保持し、下降時にテンションを一定に。股関節屈曲と上肢伸展を連動させる。"},
+tm1:{title:"電動式：傾斜ウォーク",desc:"傾斜5〜7％・6km/hで10分。骨盤の前傾を維持しながら呼吸を整える。"},
+tm2:{title:"自走式：軽いジョグ",desc:"1分走1分休×6。接地リズムを一定に保ち、体幹の安定を維持。"},
 br:{title:"90/90ブリージング",desc:"仰向けで股関節・膝90°。息を吐き切り骨盤を後傾。呼吸で腹圧を作り肋骨を締める。"},
 elbow:{title:"四つ這いチューブ・エルボープレス",desc:"四つ這いでチューブを肘で押し体幹安定。肩甲骨を肋骨に沿わせる感覚を養う。"},
 wall:{title:"ウォールスクワット",desc:"壁に近づき胸を潰さずしゃがむ。骨盤後傾と体幹制御の再教育。"},
 bp:{title:"ベンチプレス",desc:"胸郭を開き肘を45度で押す。体幹テンションを保ち上肢出力を整える。"},
-stickoh:{title:"スティック・オーバーヘッドスクワット",desc:"棒を頭上で保持し、胸郭を広げたまましゃがむ。肩甲骨上方回旋と股関節ヒンジを協調。"},
+stickoh:{title:"スティック・オーバーヘッドスクワット",desc:"棒を頭上で保持し胸郭を広げたまましゃがむ。肩甲骨上方回旋と股関節ヒンジを協調。"},
 tm3:{title:"電動式：テンポ走",desc:"30秒走＋60秒歩×6。呼吸と骨盤リズムを合わせ、テンポと脱力を学ぶ。"},
 tm4:{title:"自走式：前傾フォーム走",desc:"前傾姿勢で加速10〜15秒×6。骨盤滑走と上肢振りの同期を育てる。"},
-cat:{title:"キャット＆カウ",desc:"背骨を波打たせるように動かし、胸椎と骨盤の屈伸リズムを一致。"},
+cat:{title:"キャット＆カウ",desc:"背骨を波打たせ胸椎と骨盤の屈伸リズムを一致。"},
 hinge:{title:"ヒップヒンジ＋胸郭開閉ドリル",desc:"前傾時に胸郭を保持。下位胸郭の可動を促し潰れ防止。"},
 yraise:{title:"ショルダーYリフト",desc:"胸骨を持ち上げる意識でY字に挙上。肩甲骨上方回旋を促す。"},
 dl:{title:"デッドリフト",desc:"股関節主導でバーベルを引く。脊柱を中立に保ち下肢連動を強化。"},
@@ -264,41 +273,45 @@ sq2:{title:"軽負荷スクワット",desc:"軽重量でフォームとリズム
 halo:{title:"チューブ・ハロー＋スクワット",desc:"チューブを頭周囲で回しながらスクワット。肩甲骨滑走と股関節屈伸を同期。"},
 tm7:{title:"電動式：リズム走",desc:"90秒ラン＋30秒リカバリー×8。呼吸・ピッチ・骨盤のリズムを整える。"},
 tm8:{title:"自走式：ピッチ走",desc:"短ストライド高ピッチ10秒×10。下肢から上肢へ波動を通す。"},
-haloonly:{title:"ハロー単独ドリル",desc:"肩甲骨を滑らせながらハロー動作。胸郭回旋を解放する。"},
-spiral:{title:"スパイラル・リーチ",desc:"片脚立位で対角線にリーチ。螺旋的連鎖を強化。"},
-stepreach:{title:"ステップバック・ランジ＋リーチ",desc:"後方ランジで骨盤推進と胸郭開きを連動。"},
-dl2:{title:"デッドリフト or ベンチ軽負荷",desc:"出力よりも制御重視。全身の連動感覚を確認する日。"},
-react:{title:"リアクティブ・スティックスクワット",desc:"不安定な棒を保持してスクワット。外的揺れに対して全身を反応的に制御する。"},
+haloonly:{title:"ハロー単独ドリル",desc:"肩甲骨を滑らせながらハロー動作。胸郭回旋と肩甲帯の分離を意識する。"},
+spiral:{title:"スパイラル・リーチ",desc:"片脚立位で対角線にリーチ。全身の螺旋連鎖を強化し、バランスを整える。"},
+stepreach:{title:"ステップバック・ランジ＋リーチ",desc:"後方ランジで骨盤の推進と胸郭開きを連動させる。"},
+dl2:{title:"デッドリフト or ベンチ軽負荷",desc:"出力よりも制御を重視。全身の連動を整える目的で行う。"},
+react:{title:"リアクティブ・スティックスクワット",desc:"揺れる棒を保持してスクワット。外的刺激に反応しながら姿勢を安定化。"},
 tm9:{title:"電動式：傾斜スプリント",desc:"傾斜10％で10秒全力×6。瞬発的出力と姿勢維持を結合させる。"},
 tm10:{title:"自走式：リアクティブ走",desc:"10秒全力＋10秒オフ×8。接地反応と上肢連動の自動化を狙う。"},
-hop:{title:"ラテラル・ホップ＆キャッチ",desc:"左右ジャンプで棒やボールをキャッチ。重心移動と反応速度を同時に鍛える。"},
-pairpush:{title:"ペア・チューブプッシュ",desc:"パートナーが抵抗を変化させる中で姿勢を保つ。瞬時の姿勢調整を学習。"},
-stickhold:{title:"ジャンプ to スティック保持",desc:"ジャンプ後に棒を安定保持。反射的な安定化を促す。"},
-fsq:{title:"フロントスクワット",desc:"バーを前肩で保持。重心前方で姿勢を制御し、体幹前側を強化。"},
+hop:{title:"ラテラル・ホップ＆キャッチ",desc:"左右ジャンプでキャッチ動作。重心移動と反応速度を鍛える。"},
+pairpush:{title:"ペア・チューブプッシュ",desc:"パートナーが抵抗を変化させる中で姿勢を保つ。瞬時の調整を学習。"},
+stickhold:{title:"ジャンプ to スティック保持",desc:"ジャンプ後に棒を安定保持。反射的な体幹安定化を促す。"},
+fsq:{title:"フロントスクワット",desc:"バーを前肩で保持。重心を前方に保ちながら体幹前面を強化。"},
 inside:{title:"骨盤インサイドスクワット",desc:"スクワット中に骨盤を内旋方向へ導く。股関節内旋と腹斜筋を連動。"},
 tm11:{title:"電動式：リカバリーウォーク",desc:"傾斜0％で3〜4km/h、10分。呼吸を整え、週の疲労を回収。"},
 tm12:{title:"自走式：スロージョグ",desc:"RPE3〜4で7分。骨盤と胸郭のリズムを確認しながら軽く走る。"},
 deadbug:{title:"デッドバグ",desc:"仰向けで対角線手脚を動かし、体幹と四肢の分離を再確認。"},
 wgs:{title:"ワールドグレイテストストレッチ",desc:"全身の連動ストレッチ。股関節と胸椎の可動域を拡張。"},
-br2:{title:"90/90ブリージング（再）",desc:"週終盤の再調律。呼吸と骨盤リズムを一致させ、自律神経を整える。"}
+br2:{title:"90/90ブリージング（再）",desc:"呼吸と骨盤リズムを一致させ、自律神経を整える。"}
 };
 
 // モーダル動作
-const modal=document.getElementById('modal');
-const exTitle=document.getElementById('exTitle');
-const exDesc=document.getElementById('exDesc');
-const closeBtn=document.querySelector('.close');
-
 document.querySelectorAll('li[data-ex]').forEach(item=>{
   item.addEventListener('click',()=>{
     const key=item.dataset.ex;
-    exTitle.textContent=exInfo[key].title;
-    exDesc.textContent=exInfo[key].desc;
+    exTitle.textContent=exInfo[key]?.title||"";
+    exDesc.textContent=exInfo[key]?.desc||"";
     modal.style.display='block';
   });
 });
 closeBtn.onclick=()=>modal.style.display='none';
 window.onclick=e=>{if(e.target==modal)modal.style.display='none';}
+
+// --- PWA登録 ---
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("service-worker.js")
+    .then(()=>console.log("Service Worker registered"))
+    .catch(err=>console.error("SW registration failed:",err));
+  });
+}
 </script>
 </body>
 </html>
