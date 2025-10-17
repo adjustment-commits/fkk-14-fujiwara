@@ -5,89 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>連動スクワット × トレッドミル週6プログラム</title>
 
-<!-- ✅ iOS / PWA両対応の完全構成 -->
+<!-- ✅ iOS / PWA両対応 -->
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#1c3b2a">
-
-<!-- 👇 iOSがアイコンを認識するために必要 -->
 <link rel="apple-touch-icon" sizes="192x192" href="https://adjustment-commits.github.io/fkk-14-fujiwara/192-icons.PNG">
 <link rel="apple-touch-icon" sizes="512x512" href="https://adjustment-commits.github.io/fkk-14-fujiwara/512-icons.PNG">
-<!-- 👇 favicon としても登録 -->
-<link rel="apple-touch-icon" sizes="192x192" href="https://adjustment-commits.github.io/fkk-14-fujiwara/192-icons.PNG">
-<link rel="apple-touch-icon" sizes="512x512" href="https://adjustment-commits.github.io/fkk-14-fujiwara/512-icons.PNG">
-<!-- 👇 iOSにPWA動作を許可させるmeta -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="連動スクワット">
 
 <style>
- :root {
+:root {
   --chalk: #111;
   --board: #fff;
   --accent: #007b3a; 
- }
-  body {
-    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
-    background:var(--board);
-    color:var(--chalk);
-    margin:0; padding:0;
-  }
- header {
+}
+body {
+  font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+  background:var(--board);
+  color:var(--chalk);
+  margin:0;
+  padding:0;
+}
+header {
   text-align:center;
   padding:16px;
   border-bottom:1px solid rgba(0,0,0,0.1);
-  }
-  h1 {font-size:20px; margin:0;}
-  .tabs {
-    display:flex;
-    overflow-x:auto;
-    background:#284d37;
-    border-bottom:1px solid rgba(255,255,255,0.2);
-  }
-  .tab {
-    flex:1;
-    text-align:center;
-    padding:10px;
-    cursor:pointer;
-    color:#bbb;
-    border-bottom:3px solid transparent;
-    white-space:nowrap;
-  }
-  .tab.active {
-    color:var(--accent);
-    border-bottom:3px solid var(--accent);
-    font-weight:600;
-  }
-  .content {padding:20px;}
-  .day-section {display:none;}
-  .day-section.active {display:block;animation:fade 0.3s ease;}
-  @keyframes fade {from{opacity:0;}to{opacity:1;}}
-  h2 {font-size:18px;margin-top:0;color:var(--accent);}
-  ul {padding-left:20px;}
-  li {margin-bottom:6px;cursor:pointer;}
-  li:hover {color:var(--accent);text-decoration:underline;}
-  .theme {color:var(--accent);margin-top:10px;font-weight:600;}
- 　.goal {color:#444;font-size:14px;margin-top:10px;}
+}
+h1 {font-size:20px;margin:0;}
+.tabs {
+  display:flex;
+  overflow-x:auto;
+  background:#284d37;
+  border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.tab {
+  flex:1;
+  text-align:center;
+  padding:10px;
+  cursor:pointer;
+  color:#bbb;
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+}
+.tab.active {
+  color:var(--accent);
+  border-bottom:3px solid var(--accent);
+  font-weight:600;
+}
+.content {padding:20px;}
+.day-section {display:none;}
+.day-section.active {display:block;animation:fade 0.3s ease;}
+@keyframes fade {from{opacity:0;}to{opacity:1;}}
+h2 {font-size:18px;margin-top:0;color:var(--accent);}
+ul {padding-left:20px;}
+li {margin-bottom:6px;cursor:pointer;}
+li:hover {color:var(--accent);text-decoration:underline;}
+.theme {color:var(--accent);margin-top:10px;font-weight:600;}
+.goal {color:#444;font-size:14px;margin-top:10px;}
 
-  /* モーダル */
-  .modal {
-    display:none;position:fixed;z-index:10;left:0;top:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.6);
-  }
-  .modal-content {
-    background:#2b4d36;
-    margin:15% auto;
-    padding:20px;
-    border-radius:10px;
-    width:90%;
-    max-width:480px;
-    color:#fff;
-    box-shadow:0 4px 10px rgba(0,0,0,0.4);
-  }
-  .close {
-    float:right;font-size:20px;font-weight:bold;cursor:pointer;color:#aaa;
-  }
-  .close:hover {color:#fff;}
+/* モーダル */
+.modal {
+  display:none;position:fixed;z-index:10;left:0;top:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+}
+.modal-content {
+  background:#2b4d36;
+  margin:15% auto;
+  padding:20px;
+  border-radius:10px;
+  width:90%;
+  max-width:480px;
+  color:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  text-align:center;
+}
+.close {
+  float:right;font-size:20px;font-weight:bold;cursor:pointer;color:#aaa;
+}
+.close:hover {color:#fff;}
+.modal-content img {
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  display:block;
+  margin:10px auto 15px;
+  border-radius:8px;
+  box-shadow:0 0 8px rgba(0,0,0,0.3);
+}
 </style>
 </head>
 
@@ -103,7 +108,7 @@
   <div class="tab" data-target="day6">Program F</div>
 </div>
 
-<div class="content">
+<div class="content"><div> 
 
 <!-- ========== Day1 ========== -->
 <section id="day1" class="day-section active">
@@ -238,6 +243,7 @@
   <div class="modal-content">
     <span class="close">&times;</span>
     <h3 id="exTitle"></h3>
+    <img id="exImg" alt="" style="display:none;">
     <p id="exDesc"></p>
   </div>
 </div>
@@ -255,66 +261,52 @@ tabs.forEach(tab=>{
   });
 });
 
-// --- エクササイズ説明 ---
+// --- エクササイズ説明 + 画像 ---
 const modal=document.getElementById('modal');
 const exTitle=document.getElementById('exTitle');
 const exDesc=document.getElementById('exDesc');
+const exImg=document.getElementById('exImg');
 const closeBtn=document.querySelector('.close');
+ 
+// 各エクササイズ情報
+const exInfo = {
+  // 連動スクワット群
+  tube:{title:"チューブ吊りスクワット",desc:"頭上チューブを保持し、下降時にテンションを一定に。股関節屈曲と上肢伸展を連動させる。",img:"images/tube_sq.jpeg"},
+  stickoh:{title:"スティック・オーバーヘッドスクワット",desc:"棒を頭上で保持し胸郭を広げたまましゃがむ。肩甲骨上方回旋と股関節ヒンジを協調。",img:"images/stick_sq.jpeg"},
+  cross:{title:"スティック・クロススクワット",desc:"棒を胸の前で構え、下降時に骨盤と反対方向に上体を捻る。骨盤回旋と肩甲帯反回旋を協調。",img:"images/rot_sq.jpeg"},
+  halo:{title:"MB・ハロー＋スクワット",desc:"MBを頭周囲で回しながらスクワット。肩甲骨滑走と股関節屈伸を同期。",img:"images/rotation.jpeg"},
+  react:{title:"ウォーターバッグスクワット",desc:"ウォーターバッグを保持してスクワット。振動刺激に反応しながら姿勢を安定化。",img:"images/split_rot.jpeg"},
+  inside:{title:"肋骨インサイドスクワット",desc:"スクワット中に肋骨を内側に締める。股関節内旋と腹斜筋を連動。",img:"images/sitting_rot.jpeg"},
 
-const exInfo={
-sq:{title:"バックスクワット",desc:"足幅は肩幅。胸郭を保ち骨盤を前傾させてしゃがむ。下肢出力と軸安定を同時に育てる基本リフト。"},
-tube:{title:"チューブ吊りスクワット",desc:"頭上チューブを保持し、下降時にテンションを一定に。股関節屈曲と上肢伸展を連動させる。"},
-tm1:{title:"電動式：傾斜ウォーク",desc:"傾斜5〜7％・6km/hで10分。骨盤の前傾を維持しながら呼吸を整える。"},
-tm2:{title:"自走式：軽いジョグ",desc:"1分走1分休×6。接地リズムを一定に保ち、体幹の安定を維持。"},
-br:{title:"90/90ブリージング",desc:"仰向けで股関節・膝90°。息を吐き切り骨盤を後傾。呼吸で腹圧を作り肋骨を締める。"},
-elbow:{title:"四つ這いチューブ・エルボープレス",desc:"四つ這いでチューブを肘で押し体幹安定。肩甲骨を肋骨に沿わせる感覚を養う。"},
-wall:{title:"ウォールスクワット",desc:"壁に近づき胸を潰さずしゃがむ。骨盤後傾と体幹制御の再教育。"},
-bp:{title:"ベンチプレス",desc:"胸郭を開き肘を45度で押す。体幹テンションを保ち上肢出力を整える。"},
-stickoh:{title:"スティック・オーバーヘッドスクワット",desc:"棒を頭上で保持し胸郭を広げたまましゃがむ。肩甲骨上方回旋と股関節ヒンジを協調。"},
-tm3:{title:"電動式：テンポ走",desc:"30秒走＋60秒歩×6。呼吸と骨盤リズムを合わせ、テンポと脱力を学ぶ。"},
-tm4:{title:"自走式：前傾フォーム走",desc:"前傾姿勢で加速10〜15秒×6。骨盤滑走と上肢振りの同期を育てる。"},
-cat:{title:"キャット＆カウ",desc:"背骨を波打たせ胸椎と骨盤の屈伸リズムを一致。"},
-hinge:{title:"ヒップヒンジ＋胸郭開閉ドリル",desc:"前傾時に胸郭を保持。下位胸郭の可動を促し潰れ防止。"},
-yraise:{title:"ショルダーYリフト",desc:"胸骨を持ち上げる意識でY字に挙上。肩甲骨上方回旋を促す。"},
-dl:{title:"デッドリフト",desc:"股関節主導でバーベルを引く。脊柱を中立に保ち下肢連動を強化。"},
-cross:{title:"スティック・クロススクワット",desc:"棒を胸の前で構え、下降時に骨盤と反対方向に上体を捻る。骨盤回旋と肩甲帯反回旋を協調。"},
-tm5:{title:"電動式：インターバル走",desc:"15秒全力＋45秒歩×8。骨盤先行と胸郭遅れのタイミングを育てる。"},
-tm6:{title:"自走式：変速走",desc:"加速・減速を自分でコントロール×10。動作の予測と制御能力を鍛える。"},
-halfrot:{title:"ハーフニーリング・ローテーション",desc:"膝立ちで骨盤固定、胸郭のみ回旋。分離制御を学習。"},
-seatrot:{title:"シーテッド・トランクツイスト",desc:"座位で胸郭を捻り、胸椎可動域を広げる。"},
-pelvrot:{title:"骨盤ツイスト",desc:"スプリットスタンスで骨盤のみを先行。股関節内旋と内腹斜筋を連携。"},
-sq2:{title:"軽負荷スクワット",desc:"軽重量でフォームとリズム重視。神経系の再統合を促す。"},
-halo:{title:"MB・ハロー＋スクワット",desc:"MBを頭周囲で回しながらスクワット。肩甲骨滑走と股関節屈伸を同期。"},
-tm7:{title:"電動式：リズム走",desc:"90秒ラン＋30秒リカバリー×8。呼吸・ピッチ・骨盤のリズムを整える。"},
-tm8:{title:"自走式：ピッチ走",desc:"短ストライド高ピッチ10秒×10。下肢から上肢へ波動を通す。"},
-haloonly:{title:"ハロー単独ドリル",desc:"MBを頭上で肩甲骨を滑らせながらハロー動作。胸郭回旋と肩甲帯の分離を意識する。"},
-spiral:{title:"スパイラル・リーチ",desc:"片脚立位で対角線にリーチ。全身の螺旋連鎖を強化し、バランスを整える。"},
-stepreach:{title:"ステップバック・ランジ＋リーチ",desc:"後方ランジで骨盤の推進と胸郭開きを連動させる。"},
-dl2:{title:"デッドリフト or ベンチ軽負荷",desc:"出力よりも制御を重視。全身の連動を整える目的で行う。"},
-react:{title:"ウォータバッグスクワット",desc:"ウォーターバッグを保持してスクワット。振動刺激に反応しながら姿勢を安定化。"},
-tm9:{title:"電動式：傾斜スプリント",desc:"傾斜10％で10秒全力×6。瞬発的出力と姿勢維持を結合させる。"},
-tm10:{title:"自走式：リアクティブ走",desc:"10秒全力＋10秒オフ×8。接地反応と上肢連動の自動化を狙う。"},
-hop:{title:"ラテラル・ホップ＆キャッチ",desc:"左右ジャンプでキャッチ動作。重心移動と反応速度を鍛える。"},
-pairpush:{title:"四つん這い・バンドプル",desc:"四つん這いで後方からトレーニングバンドを腰元に装着。胴体のスムーズな移動を学習する。"},
-stickhold:{title:"ジャンプ to ウォータバッグ保持",desc:"ウォータバッグを持ってジャンプから着地で安定保持。反射的な体幹安定化を促す。"},
-fsq:{title:"フロントスクワット",desc:"バーを前肩で保持。重心を前方に保ちながら体幹前面を強化。"},
-inside:{title:"肋骨インサイドスクワット",desc:"スクワット中に肋骨を内側に締める。股関節内旋と腹斜筋を連動。"},
-tm11:{title:"電動式：リカバリーウォーク",desc:"傾斜0％で3〜4km/h、10分。呼吸を整え、週の疲労を回収。"},
-tm12:{title:"自走式：スロージョグ",desc:"RPE3〜4で7分。骨盤と胸郭のリズムを確認しながら軽く走る。"},
-deadbug:{title:"デッドバグ",desc:"仰向けで対角線手脚を動かし、体幹と四肢の分離を再確認。"},
-wgs:{title:"ワールドグレイテストストレッチ",desc:"全身の連動ストレッチ。股関節と胸椎の可動域を拡張。"},
-br2:{title:"90/90ブリージング（再）",desc:"呼吸と骨盤リズムを一致させ、自律神経を整える。"}
+  // 逆算エクササイズ群
+  wall:{title:"ウォールスクワット",desc:"壁に近づき胸を潰さずしゃがむ。骨盤後傾と体幹制御の再教育。",img:"images/wall_sq.jpeg"},
+  elbow:{title:"四つ這いチューブ・エルボープレス",desc:"四つ這いでチューブを肘で押し体幹安定。肩甲骨を肋骨に沿わせる感覚を養う。",img:"images/elbow_push.jpeg"},
+  cat:{title:"キャット＆カウ",desc:"背骨を波打たせ胸椎と骨盤の屈伸リズムを一致。",img:"images/cat_dog.jpeg"},
+  halfrot:{title:"ハーフニーリング・ローテーション",desc:"膝立ちで骨盤固定、胸郭のみ回旋。分離制御を学習。",img:"images/half_knee_rot.jpeg"},
+  br:{title:"90/90ブリージング",desc:"仰向けで股関節・膝90°。息を吐き切り骨盤を後傾。呼吸で腹圧を作り肋骨を締める。",img:"images/90_90.jpeg"},
+  yraise:{title:"ショルダーYリフト",desc:"胸骨を持ち上げる意識でY字に挙上。肩甲骨上方回旋を促す。",img:"images/Y.jpeg"}
 };
 
-// モーダル動作
+// --- モーダル操作 ---
 document.querySelectorAll('li[data-ex]').forEach(item=>{
   item.addEventListener('click',()=>{
     const key=item.dataset.ex;
-    exTitle.textContent=exInfo[key]?.title||"";
-    exDesc.textContent=exInfo[key]?.desc||"";
+    const info=exInfo[key];
+    exTitle.textContent=info?.title||"";
+    exDesc.textContent=info?.desc||"";
+
+    // 画像が定義されている場合のみ表示
+    if(info?.img){
+      exImg.src=info.img;
+      exImg.style.display="block";
+    } else {
+      exImg.style.display="none";
+    }
+
     modal.style.display='block';
   });
 });
+
 closeBtn.onclick=()=>modal.style.display='none';
 window.onclick=e=>{if(e.target==modal)modal.style.display='none';}
 
@@ -322,8 +314,8 @@ window.onclick=e=>{if(e.target==modal)modal.style.display='none';}
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
     navigator.serviceWorker.register("service-worker.js")
-    .then(()=>console.log("Service Worker registered"))
-    .catch(err=>console.error("SW registration failed:",err));
+      .then(()=>console.log("Service Worker registered"))
+      .catch(err=>console.error("SW registration failed:",err));
   });
 }
 </script>
